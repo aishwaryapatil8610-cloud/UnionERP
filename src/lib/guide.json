@@ -1,0 +1,398 @@
+{
+  "flow": [
+    {
+      "id": "collection",
+      "label": "Farmer",
+      "text": "Milk is poured at the village centre. The machine records quantity, fat and SNF."
+    },
+    {
+      "id": "farmers",
+      "label": "Centre",
+      "text": "Society or chilling centre keeps the farmer-wise record."
+    },
+    {
+      "id": "gate",
+      "label": "Gate",
+      "text": "Tanker arrives at the plant gate and is entered in the gate register."
+    },
+    {
+      "id": "reception",
+      "label": "Reception",
+      "text": "Weighbridge and lab test the milk. Good milk is accepted, bad milk is rejected."
+    },
+    {
+      "id": "silos",
+      "label": "Silo",
+      "text": "Accepted milk is unloaded into a silo and stock increases."
+    },
+    {
+      "id": "production",
+      "label": "Production",
+      "text": "Milk becomes curd, paneer, ghee and butter in batches."
+    },
+    {
+      "id": "dispatch",
+      "label": "Dispatch",
+      "text": "Milk is loaded into a tanker and sent to a plant, booth or customer."
+    },
+    {
+      "id": "payments",
+      "label": "Money",
+      "text": "Farmer payments, sales and accounting vouchers close the loop."
+    }
+  ],
+  "modules": [
+    {
+      "id": "dashboard",
+      "title": "Dashboard",
+      "route": "/",
+      "group": "Overview",
+      "summary": "One screen that shows how the plant is doing right now.",
+      "steps": [
+        "Open the app after login. You land here.",
+        "Read the six number cards: collected today, received at plant, silo stock, vehicles inside, farmer dues, sales today.",
+        "Check the 14 day chart to see if milk is rising or falling.",
+        "Check silo levels, collection by centre and gate activity to spot anything unusual.",
+        "Tap any quick link to jump straight to a module."
+      ],
+      "tip": "Start every shift here."
+    },
+    {
+      "id": "account",
+      "title": "Account: sign in, sign up, sign out",
+      "route": "/login",
+      "group": "Overview",
+      "summary": "Create a plant account, sign in and sign out.",
+      "steps": [
+        "Open Create account, fill name, email, plant name, role and a strong password.",
+        "Sign in with your email and password; tick Keep me signed in to stay logged in.",
+        "Use Forgot password on the login page to request a reset link.",
+        "Press the red sign-out button at the bottom of the sidebar to log out."
+      ],
+      "tip": "Demo login: admin@kshira.in / kshira123."
+    },
+    {
+      "id": "gate",
+      "title": "Gate entry",
+      "route": "/gate",
+      "group": "Gate and receiving",
+      "summary": "Digital register of every vehicle and visitor that enters or leaves the plant.",
+      "steps": [
+        "Press New gate entry when a vehicle arrives.",
+        "Fill vehicle number, driver, type (milk tanker, feed, staff, visitor), party and purpose.",
+        "The entry shows as Inside with the entry time.",
+        "When the vehicle leaves, press Mark exit on that row.",
+        "Use the filter to see only vehicles still inside."
+      ],
+      "tip": "A milk tanker entered here is what the Reception team picks up next."
+    },
+    {
+      "id": "reception",
+      "title": "Milk reception",
+      "route": "/reception",
+      "group": "Gate and receiving",
+      "summary": "Weigh and test every incoming tanker, then accept or reject it and send it to a silo.",
+      "steps": [
+        "Press Receive tanker.",
+        "Enter tanker number, route, quantity in litres, fat, SNF, temperature and acidity.",
+        "Choose the silo to unload into.",
+        "Pick Accepted, Rejected or Pending.",
+        "Accepted litres are added to that silo stock automatically."
+      ],
+      "tip": "Temperature above 8 C or acidity above 0.16 should normally be rejected."
+    },
+    {
+      "id": "silos",
+      "title": "Silos and stock",
+      "route": "/silos",
+      "group": "Gate and receiving",
+      "summary": "Live view of every milk tank with fill level and temperature.",
+      "steps": [
+        "Each tank shows how full it is and its temperature.",
+        "Red or amber tanks need attention (almost full or too warm).",
+        "Use the numbers to decide which silo receives the next tanker."
+      ],
+      "tip": "Keep raw milk below 5 C."
+    },
+    {
+      "id": "dispatch",
+      "title": "Dispatch",
+      "route": "/dispatch",
+      "group": "Gate and receiving",
+      "summary": "Milk going out of the plant in tankers.",
+      "steps": [
+        "Press New dispatch.",
+        "Enter tanker, destination, quantity, fat and SNF.",
+        "Status starts as Loading, then On route, then Delivered.",
+        "Update the status from the table as the trip progresses."
+      ],
+      "tip": "Pair this with a Milk tanker out entry in Gate entry."
+    },
+    {
+      "id": "collection",
+      "title": "Machine collection",
+      "route": "/collection",
+      "group": "Procurement",
+      "summary": "Farmer-wise records coming from the milk analyser and weighing machine at the village centre.",
+      "steps": [
+        "Every row is one farmer, one shift: litres, fat, SNF, rate and amount.",
+        "Filter by shift or search by farmer name or code.",
+        "Press Simulate machine entry to see how a new reading appears live.",
+        "Export the table to CSV for the centre."
+      ],
+      "tip": "Rate is calculated from fat and SNF, so the farmer sees exactly why the amount changed."
+    },
+    {
+      "id": "farmers",
+      "title": "Farmers",
+      "route": "/farmers",
+      "group": "Procurement",
+      "summary": "Master list of milk suppliers.",
+      "steps": [
+        "Press Add farmer to register a new supplier.",
+        "Enter name, village, centre, milk type and phone.",
+        "Advance given to the farmer is shown here and is deducted at payment time."
+      ],
+      "tip": "Keep phone numbers right so bills can be sent by SMS later."
+    },
+    {
+      "id": "quality",
+      "title": "Quality lab",
+      "route": "/quality",
+      "group": "Procurement",
+      "summary": "Spot low fat, low SNF and rejected tankers before they become a loss.",
+      "steps": [
+        "Cards show average fat, SNF and rejection rate.",
+        "The chart shows daily average fat and SNF.",
+        "The alert list shows farmer readings below the limit and rejected tankers."
+      ],
+      "tip": "Repeated low SNF from one farmer often means water mixing."
+    },
+    {
+      "id": "rates",
+      "title": "Rate chart",
+      "route": "/rates",
+      "group": "Procurement",
+      "summary": "Price per litre for every fat and SNF combination.",
+      "steps": [
+        "Read the colour grid: darker cells pay more.",
+        "Use the calculator: type fat, SNF and litres to see the rate and amount.",
+        "Show the grid to farmers so they understand their payment."
+      ],
+      "tip": "Rate = fat x 6.20 + SNF x 3.10 in this demo. Change the formula in lib/data.ts."
+    },
+    {
+      "id": "services",
+      "title": "Farmer services",
+      "route": "/services",
+      "group": "Procurement",
+      "summary": "Vet visits, vaccination, artificial insemination and health checks.",
+      "steps": [
+        "Press Book a visit and pick farmer, service, animal tag and vet.",
+        "Visits start as Scheduled.",
+        "Press Mark done after the vet visit.",
+        "Charges add up in the top cards."
+      ],
+      "tip": "Healthy animals mean steady milk and better fat."
+    },
+    {
+      "id": "inventory",
+      "title": "Inventory",
+      "route": "/inventory",
+      "group": "Production and stores",
+      "summary": "Stock of cattle feed, products, packing, chemicals and fuel.",
+      "steps": [
+        "Items below their reorder level show a red Low badge.",
+        "Press Add item to create a new stock item.",
+        "Search or filter by category."
+      ],
+      "tip": "Cleaning chemicals running out can stop the whole plant."
+    },
+    {
+      "id": "production",
+      "title": "Production",
+      "route": "/production",
+      "group": "Production and stores",
+      "summary": "Batches of milk, curd, paneer, ghee and butter.",
+      "steps": [
+        "Press New batch, choose the product and litres of milk to use.",
+        "Press Start when work begins.",
+        "Press Complete when the batch is done; output and yield % are filled in.",
+        "Filter by product to compare yield."
+      ],
+      "tip": "Low yield for the same product is an early sign of a process problem."
+    },
+    {
+      "id": "purchases",
+      "title": "Purchases",
+      "route": "/purchases",
+      "group": "Production and stores",
+      "summary": "Purchase orders to vendors for feed, packing, chemicals and fuel.",
+      "steps": [
+        "Press New purchase order and choose vendor, item, quantity and rate.",
+        "Order starts as Ordered.",
+        "Mark received when goods arrive, then mark paid after payment."
+      ],
+      "tip": "Order before an item hits its reorder level in Inventory."
+    },
+    {
+      "id": "sales",
+      "title": "Sales",
+      "route": "/sales",
+      "group": "Sales",
+      "summary": "Product and milk sales to shops, hotels and booths.",
+      "steps": [
+        "Press New sale.",
+        "Enter customer, product, quantity and rate. Amount is calculated.",
+        "Mark paid or unpaid.",
+        "Outstanding amount is shown at the top."
+      ],
+      "tip": "Chase unpaid sales every Monday."
+    },
+    {
+      "id": "customers",
+      "title": "Customers",
+      "route": "/customers",
+      "group": "Sales",
+      "summary": "Customer master with credit limit and outstanding.",
+      "steps": [
+        "Press Add customer and enter type, city, phone and credit limit.",
+        "Customers over their credit limit show a red badge.",
+        "Check this list before accepting a new credit order."
+      ],
+      "tip": "Stop supply to customers who are over limit and unpaid."
+    },
+    {
+      "id": "accounting",
+      "title": "Accounting",
+      "route": "/accounting",
+      "group": "Finance",
+      "summary": "Vouchers for money received, money paid and adjustments.",
+      "steps": [
+        "Press New voucher.",
+        "Choose Receipt, Payment or Journal, the account and the amount.",
+        "Totals of debit, credit and the balance update immediately.",
+        "Filter by voucher type or search by account."
+      ],
+      "tip": "Use the same account names every time so reports stay clean."
+    },
+    {
+      "id": "payments",
+      "title": "Farmer payments",
+      "route": "/payments",
+      "group": "Finance",
+      "summary": "10-day payment cycle for farmers, calculated from the machine collection.",
+      "steps": [
+        "Each farmer row shows litres, gross amount, advance deduction and net payable.",
+        "Press Pay on a row after the bank transfer or cash payment.",
+        "Paid rows turn green and the pending total drops."
+      ],
+      "tip": "Advance is deducted in parts so the farmer never gets zero."
+    },
+    {
+      "id": "expenses",
+      "title": "Expenses",
+      "route": "/expenses",
+      "group": "Finance",
+      "summary": "Daily plant expenses with manager approval.",
+      "steps": [
+        "Press New expense and fill head, description, amount and payment mode.",
+        "The entry waits as Pending.",
+        "The manager presses Approve."
+      ],
+      "tip": "Keep bills for every cash expense."
+    },
+    {
+      "id": "fleet",
+      "title": "Fleet",
+      "route": "/fleet",
+      "group": "Operations",
+      "summary": "Tankers, vans, drivers and routes.",
+      "steps": [
+        "See each vehicle with its driver and route.",
+        "Status shows Running, Idle or Maintenance.",
+        "Press Add vehicle to register a new one."
+      ],
+      "tip": "Keep one spare tanker idle for emergencies."
+    },
+    {
+      "id": "hr",
+      "title": "HR and payroll",
+      "route": "/hr",
+      "group": "Operations",
+      "summary": "Employees, attendance and monthly salary total.",
+      "steps": [
+        "Tap Present or Absent on a row to mark today attendance.",
+        "Top cards show headcount, present today and monthly payroll.",
+        "Press Add employee to register staff."
+      ],
+      "tip": "Mark attendance before 10 am."
+    },
+    {
+      "id": "assets",
+      "title": "Assets and service",
+      "route": "/assets",
+      "group": "Operations",
+      "summary": "Plant machines with next service date and condition.",
+      "steps": [
+        "See every machine with its location and next service date.",
+        "Overdue dates turn red.",
+        "After repair, press Mark fixed."
+      ],
+      "tip": "Service the chiller and boiler before the summer peak."
+    },
+    {
+      "id": "reports",
+      "title": "Reports",
+      "route": "/reports",
+      "group": "Insight and admin",
+      "summary": "Ten ready reports, each with live numbers, a chart, a full table, CSV download and print.",
+      "steps": [
+        "Choose a report tab: daily collection, farmer-wise, reception, gate, dispatch, production, accounts, sales, stock or payroll.",
+        "Read the four number cards and the chart.",
+        "Scroll to the data table; sort, page through and check rows.",
+        "Press Download CSV for Excel or Print for paper."
+      ],
+      "tip": "Download month-end reports on the last day."
+    },
+    {
+      "id": "settings",
+      "title": "Settings",
+      "route": "/settings",
+      "group": "Insight and admin",
+      "summary": "Theme, plant name and alert limits.",
+      "steps": [
+        "Switch between light and dark theme.",
+        "Change the plant name shown in the sidebar.",
+        "Set minimum fat and SNF limits for alerts."
+      ],
+      "tip": "Change limits only with the plant manager approval."
+    },
+    {
+      "id": "users",
+      "title": "Users and roles",
+      "route": "/users",
+      "group": "Insight and admin",
+      "summary": "Who can sign in and what role they have.",
+      "steps": [
+        "Press Invite user and enter name, email and role.",
+        "Press Disable to block a user who left the company.",
+        "Filter by role."
+      ],
+      "tip": "Give each person only the access they need."
+    },
+    {
+      "id": "support",
+      "title": "Help and contact",
+      "route": "/support",
+      "group": "Insight and admin",
+      "summary": "Raise a support request and read quick answers.",
+      "steps": [
+        "Choose a topic, write the subject and message.",
+        "You get a ticket number like KS-1234.",
+        "Your recent requests are listed on the page."
+      ],
+      "tip": "Mention the machine model for analyser or weighbridge help."
+    }
+  ]
+}

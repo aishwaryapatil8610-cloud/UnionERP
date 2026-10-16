@@ -1,0 +1,1257 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- Palettes: Emerald Grove (default) and Onyx & Gold. Each has a light and a dark mode. ---- */
+:root,
+:root[data-palette="emerald"] {
+  --bg: 244 248 244;
+  --panel: 253 255 253;
+  --soft: 232 241 234;
+  --line: 213 227 217;
+  --ink: 14 36 28;
+  --mute: 87 112 100;
+  --brand: 14 120 84;
+  --accent: 36 165 114;
+  --deep: 6 40 30;
+  --cream: 241 222 170;
+  --cow: 201 140 30;
+  --buffalo: 112 98 88;
+  --goat: 120 150 60;
+  --danger: 196 48 60;
+  --ok: 22 140 90;
+  --warn: 205 130 28;
+  --onbrand: 255 255 255;
+  --g1: 5 58 42;
+  --g2: 14 120 84;
+  --g3: 212 168 67;
+  --mark: 6 62 45;
+  --paper: 244 251 246;
+  --edge: 168 205 184;
+  --tint: 220 238 226;
+  color-scheme: light;
+}
+
+:root.dark,
+:root[data-palette="emerald"].dark {
+  --bg: 8 19 15;
+  --panel: 14 30 24;
+  --soft: 22 43 35;
+  --line: 37 63 52;
+  --ink: 232 245 238;
+  --mute: 146 175 161;
+  --brand: 52 201 140;
+  --accent: 110 224 170;
+  --deep: 3 10 8;
+  --cream: 241 222 170;
+  --cow: 232 170 66;
+  --buffalo: 168 156 146;
+  --goat: 160 190 90;
+  --danger: 240 110 110;
+  --ok: 96 205 140;
+  --warn: 240 175 80;
+  --onbrand: 3 30 20;
+  --g1: 5 62 46;
+  --g2: 16 122 88;
+  --g3: 196 156 60;
+  --mark: 8 74 54;
+  --paper: 244 251 246;
+  --edge: 168 205 184;
+  --tint: 220 238 226;
+  color-scheme: dark;
+}
+
+:root[data-palette="onyx"] {
+  --bg: 247 246 242;
+  --panel: 255 255 253;
+  --soft: 238 236 229;
+  --line: 223 220 210;
+  --ink: 26 26 28;
+  --mute: 108 106 99;
+  --brand: 154 106 12;
+  --accent: 201 153 52;
+  --deep: 20 20 22;
+  --cream: 244 228 190;
+  --cow: 201 140 30;
+  --buffalo: 112 98 88;
+  --goat: 120 150 60;
+  --danger: 190 45 55;
+  --ok: 40 140 96;
+  --warn: 205 130 28;
+  --onbrand: 255 255 255;
+  --g1: 22 22 25;
+  --g2: 122 86 12;
+  --g3: 222 178 80;
+  --mark: 24 24 27;
+  --paper: 255 250 238;
+  --edge: 214 192 140;
+  --tint: 245 232 200;
+  color-scheme: light;
+}
+
+:root[data-palette="onyx"].dark {
+  --bg: 16 16 18;
+  --panel: 25 25 28;
+  --soft: 36 36 40;
+  --line: 55 54 58;
+  --ink: 245 242 234;
+  --mute: 166 162 152;
+  --brand: 226 178 70;
+  --accent: 241 208 125;
+  --deep: 5 5 6;
+  --cream: 244 228 190;
+  --cow: 232 170 66;
+  --buffalo: 168 156 146;
+  --goat: 160 190 90;
+  --danger: 240 110 110;
+  --ok: 96 205 140;
+  --warn: 240 175 80;
+  --onbrand: 32 22 4;
+  --g1: 44 38 26;
+  --g2: 140 100 20;
+  --g3: 226 184 84;
+  --mark: 72 58 26;
+  --paper: 255 250 238;
+  --edge: 214 192 140;
+  --tint: 245 232 200;
+  color-scheme: dark;
+}
+
+/* Printing always uses the light version of the active palette */
+@media print {
+  :root[data-palette="emerald"].dark {
+    --bg: 244 248 244;
+    --panel: 253 255 253;
+    --soft: 232 241 234;
+    --line: 213 227 217;
+    --ink: 14 36 28;
+    --mute: 87 112 100;
+    --brand: 14 120 84;
+    --accent: 36 165 114;
+    --deep: 6 40 30;
+    --cream: 241 222 170;
+    --cow: 201 140 30;
+    --buffalo: 112 98 88;
+    --goat: 120 150 60;
+    --danger: 196 48 60;
+    --ok: 22 140 90;
+    --warn: 205 130 28;
+    --onbrand: 255 255 255;
+    --g1: 5 58 42;
+    --g2: 14 120 84;
+    --g3: 212 168 67;
+    --mark: 6 62 45;
+    --paper: 244 251 246;
+    --edge: 168 205 184;
+    --tint: 220 238 226;
+    color-scheme: light;
+  }
+
+  :root[data-palette="onyx"].dark {
+    --bg: 247 246 242;
+    --panel: 255 255 253;
+    --soft: 238 236 229;
+    --line: 223 220 210;
+    --ink: 26 26 28;
+    --mute: 108 106 99;
+    --brand: 154 106 12;
+    --accent: 201 153 52;
+    --deep: 20 20 22;
+    --cream: 244 228 190;
+    --cow: 201 140 30;
+    --buffalo: 112 98 88;
+    --goat: 120 150 60;
+    --danger: 190 45 55;
+    --ok: 40 140 96;
+    --warn: 205 130 28;
+    --onbrand: 255 255 255;
+    --g1: 22 22 25;
+    --g2: 122 86 12;
+    --g3: 222 178 80;
+    --mark: 24 24 27;
+    --paper: 255 250 238;
+    --edge: 214 192 140;
+    --tint: 245 232 200;
+    color-scheme: light;
+  }
+}
+
+/* ---- More palettes: Crimson Velvet and Mocha Latte ---- */
+:root[data-palette="crimson"] {
+  --bg: 251 245 245;
+  --panel: 255 253 253;
+  --soft: 245 232 233;
+  --line: 233 215 217;
+  --ink: 42 18 24;
+  --mute: 120 92 98;
+  --brand: 168 28 56;
+  --accent: 214 72 98;
+  --deep: 42 10 18;
+  --cream: 246 222 205;
+  --danger: 214 60 40;
+  --ok: 30 140 90;
+  --onbrand: 255 255 255;
+  --g1: 74 10 28;
+  --g2: 168 28 56;
+  --g3: 224 160 120;
+  --mark: 74 12 30;
+  --paper: 255 247 244;
+  --edge: 224 178 184;
+  --tint: 247 225 226;
+  --cow: 201 140 30;
+  --buffalo: 112 98 88;
+  --goat: 120 150 60;
+  --warn: 205 130 28;
+  color-scheme: light;
+}
+
+:root[data-palette="crimson"].dark {
+  --bg: 20 10 12;
+  --panel: 32 17 21;
+  --soft: 46 26 31;
+  --line: 71 42 49;
+  --ink: 250 238 238;
+  --mute: 190 160 166;
+  --brand: 240 98 122;
+  --accent: 248 150 165;
+  --deep: 8 3 4;
+  --cream: 246 222 205;
+  --onbrand: 40 6 14;
+  --g1: 80 12 32;
+  --g2: 160 30 58;
+  --g3: 226 150 110;
+  --mark: 100 20 42;
+  --paper: 255 247 244;
+  --edge: 224 178 184;
+  --tint: 247 225 226;
+  --cow: 232 170 66;
+  --buffalo: 168 156 146;
+  --goat: 160 190 90;
+  --danger: 240 110 110;
+  --ok: 96 205 140;
+  --warn: 240 175 80;
+  color-scheme: dark;
+}
+
+:root[data-palette="mocha"] {
+  --bg: 250 246 241;
+  --panel: 255 253 250;
+  --soft: 241 233 223;
+  --line: 227 214 200;
+  --ink: 38 27 20;
+  --mute: 112 95 82;
+  --brand: 111 78 55;
+  --accent: 176 137 104;
+  --deep: 38 24 16;
+  --cream: 240 224 200;
+  --danger: 196 48 60;
+  --ok: 46 140 90;
+  --onbrand: 255 255 255;
+  --g1: 42 28 20;
+  --g2: 111 78 55;
+  --g3: 205 165 120;
+  --mark: 46 30 22;
+  --paper: 255 250 241;
+  --edge: 214 190 160;
+  --tint: 243 230 210;
+  --cow: 201 140 30;
+  --buffalo: 112 98 88;
+  --goat: 120 150 60;
+  --warn: 205 130 28;
+  color-scheme: light;
+}
+
+:root[data-palette="mocha"].dark {
+  --bg: 20 15 12;
+  --panel: 31 24 19;
+  --soft: 44 35 28;
+  --line: 66 54 44;
+  --ink: 247 240 230;
+  --mute: 183 166 148;
+  --brand: 214 170 125;
+  --accent: 232 200 160;
+  --deep: 8 5 4;
+  --cream: 240 224 200;
+  --onbrand: 40 24 10;
+  --g1: 56 38 26;
+  --g2: 130 92 60;
+  --g3: 214 172 128;
+  --mark: 80 56 38;
+  --paper: 255 250 241;
+  --edge: 214 190 160;
+  --tint: 243 230 210;
+  --cow: 232 170 66;
+  --buffalo: 168 156 146;
+  --goat: 160 190 90;
+  --danger: 240 110 110;
+  --ok: 96 205 140;
+  --warn: 240 175 80;
+  color-scheme: dark;
+}
+
+@media print {
+  :root[data-palette="crimson"].dark {
+    --bg: 251 245 245;
+    --panel: 255 253 253;
+    --soft: 245 232 233;
+    --line: 233 215 217;
+    --ink: 42 18 24;
+    --mute: 120 92 98;
+    --brand: 168 28 56;
+    --accent: 214 72 98;
+    --deep: 42 10 18;
+    --cream: 246 222 205;
+    --danger: 214 60 40;
+    --ok: 30 140 90;
+    --onbrand: 255 255 255;
+    --g1: 74 10 28;
+    --g2: 168 28 56;
+    --g3: 224 160 120;
+    --mark: 74 12 30;
+    --paper: 255 247 244;
+    --edge: 224 178 184;
+    --tint: 247 225 226;
+    --cow: 201 140 30;
+    --buffalo: 112 98 88;
+    --goat: 120 150 60;
+    --warn: 205 130 28;
+    color-scheme: light;
+  }
+
+  :root[data-palette="mocha"].dark {
+    --bg: 250 246 241;
+    --panel: 255 253 250;
+    --soft: 241 233 223;
+    --line: 227 214 200;
+    --ink: 38 27 20;
+    --mute: 112 95 82;
+    --brand: 111 78 55;
+    --accent: 176 137 104;
+    --deep: 38 24 16;
+    --cream: 240 224 200;
+    --danger: 196 48 60;
+    --ok: 46 140 90;
+    --onbrand: 255 255 255;
+    --g1: 42 28 20;
+    --g2: 111 78 55;
+    --g3: 205 165 120;
+    --mark: 46 30 22;
+    --paper: 255 250 241;
+    --edge: 214 190 160;
+    --tint: 243 230 210;
+    --cow: 201 140 30;
+    --buffalo: 112 98 88;
+    --goat: 120 150 60;
+    --warn: 205 130 28;
+    color-scheme: light;
+  }
+}
+
+/* ---- More palettes: Rose Quartz, Graphite & Silver, Deep Teal & Sand ---- */
+:root[data-palette="rose"] {
+  --bg: 253 245 248;
+  --panel: 255 253 254;
+  --soft: 250 232 239;
+  --line: 240 214 225;
+  --ink: 48 20 34;
+  --mute: 126 94 108;
+  --brand: 192 54 112;
+  --accent: 224 100 150;
+  --deep: 48 14 30;
+  --cream: 250 224 226;
+  --danger: 214 52 36;
+  --ok: 30 140 90;
+  --onbrand: 255 255 255;
+  --g1: 110 20 60;
+  --g2: 192 54 112;
+  --g3: 240 160 150;
+  --mark: 110 20 60;
+  --paper: 255 248 250;
+  --edge: 238 190 208;
+  --tint: 251 228 236;
+  --cow: 201 140 30;
+  --buffalo: 112 98 88;
+  --goat: 120 150 60;
+  --warn: 205 130 28;
+  color-scheme: light;
+}
+
+:root[data-palette="rose"].dark {
+  --bg: 22 11 16;
+  --panel: 34 18 25;
+  --soft: 50 28 38;
+  --line: 76 46 60;
+  --ink: 252 240 245;
+  --mute: 195 164 178;
+  --brand: 244 114 160;
+  --accent: 250 168 198;
+  --deep: 9 3 6;
+  --cream: 250 224 226;
+  --onbrand: 52 8 28;
+  --g1: 104 20 62;
+  --g2: 186 52 110;
+  --g3: 238 150 140;
+  --mark: 130 26 76;
+  --paper: 255 248 250;
+  --edge: 238 190 208;
+  --tint: 251 228 236;
+  --cow: 232 170 66;
+  --buffalo: 168 156 146;
+  --goat: 160 190 90;
+  --danger: 240 110 110;
+  --ok: 96 205 140;
+  --warn: 240 175 80;
+  color-scheme: dark;
+}
+
+:root[data-palette="graphite"] {
+  --bg: 245 245 246;
+  --panel: 255 255 255;
+  --soft: 234 234 236;
+  --line: 218 218 222;
+  --ink: 24 24 27;
+  --mute: 104 104 112;
+  --brand: 52 52 60;
+  --accent: 140 140 150;
+  --deep: 12 12 14;
+  --cream: 236 236 238;
+  --danger: 200 48 56;
+  --ok: 40 140 96;
+  --onbrand: 255 255 255;
+  --g1: 18 18 20;
+  --g2: 72 72 80;
+  --g3: 176 176 186;
+  --mark: 28 28 32;
+  --paper: 250 250 251;
+  --edge: 196 196 204;
+  --tint: 232 232 236;
+  --cow: 201 140 30;
+  --buffalo: 112 98 88;
+  --goat: 120 150 60;
+  --warn: 205 130 28;
+  color-scheme: light;
+}
+
+:root[data-palette="graphite"].dark {
+  --bg: 14 14 15;
+  --panel: 23 23 25;
+  --soft: 34 34 37;
+  --line: 52 52 56;
+  --ink: 244 244 246;
+  --mute: 164 164 172;
+  --brand: 214 214 222;
+  --accent: 168 168 178;
+  --deep: 4 4 5;
+  --cream: 236 236 238;
+  --onbrand: 20 20 24;
+  --g1: 34 34 38;
+  --g2: 84 84 94;
+  --g3: 190 190 200;
+  --mark: 70 70 78;
+  --paper: 250 250 251;
+  --edge: 196 196 204;
+  --tint: 232 232 236;
+  --cow: 232 170 66;
+  --buffalo: 168 156 146;
+  --goat: 160 190 90;
+  --danger: 240 110 110;
+  --ok: 96 205 140;
+  --warn: 240 175 80;
+  color-scheme: dark;
+}
+
+:root[data-palette="teal"] {
+  --bg: 248 246 241;
+  --panel: 255 254 252;
+  --soft: 236 238 232;
+  --line: 218 222 214;
+  --ink: 12 38 40;
+  --mute: 82 108 108;
+  --brand: 13 118 116;
+  --accent: 40 168 160;
+  --deep: 6 40 42;
+  --cream: 244 228 190;
+  --danger: 196 48 60;
+  --ok: 40 140 90;
+  --onbrand: 255 255 255;
+  --g1: 5 54 58;
+  --g2: 13 118 116;
+  --g3: 224 184 120;
+  --mark: 6 58 60;
+  --paper: 247 252 251;
+  --edge: 170 205 202;
+  --tint: 222 238 235;
+  --cow: 201 140 30;
+  --buffalo: 112 98 88;
+  --goat: 120 150 60;
+  --warn: 205 130 28;
+  color-scheme: light;
+}
+
+:root[data-palette="teal"].dark {
+  --bg: 8 20 21;
+  --panel: 14 31 33;
+  --soft: 22 45 47;
+  --line: 36 66 68;
+  --ink: 232 246 245;
+  --mute: 148 178 178;
+  --brand: 45 200 190;
+  --accent: 120 224 214;
+  --deep: 3 10 10;
+  --cream: 244 228 190;
+  --onbrand: 3 32 32;
+  --g1: 5 58 62;
+  --g2: 14 124 122;
+  --g3: 214 170 108;
+  --mark: 8 76 78;
+  --paper: 247 252 251;
+  --edge: 170 205 202;
+  --tint: 222 238 235;
+  --cow: 232 170 66;
+  --buffalo: 168 156 146;
+  --goat: 160 190 90;
+  --danger: 240 110 110;
+  --ok: 96 205 140;
+  --warn: 240 175 80;
+  color-scheme: dark;
+}
+
+@media print {
+  :root[data-palette="rose"].dark {
+    --bg: 253 245 248;
+    --panel: 255 253 254;
+    --soft: 250 232 239;
+    --line: 240 214 225;
+    --ink: 48 20 34;
+    --mute: 126 94 108;
+    --brand: 192 54 112;
+    --accent: 224 100 150;
+    --deep: 48 14 30;
+    --cream: 250 224 226;
+    --danger: 214 52 36;
+    --ok: 30 140 90;
+    --onbrand: 255 255 255;
+    --g1: 110 20 60;
+    --g2: 192 54 112;
+    --g3: 240 160 150;
+    --mark: 110 20 60;
+    --paper: 255 248 250;
+    --edge: 238 190 208;
+    --tint: 251 228 236;
+    --cow: 201 140 30;
+    --buffalo: 112 98 88;
+    --goat: 120 150 60;
+    --warn: 205 130 28;
+    color-scheme: light;
+  }
+
+  :root[data-palette="graphite"].dark {
+    --bg: 245 245 246;
+    --panel: 255 255 255;
+    --soft: 234 234 236;
+    --line: 218 218 222;
+    --ink: 24 24 27;
+    --mute: 104 104 112;
+    --brand: 52 52 60;
+    --accent: 140 140 150;
+    --deep: 12 12 14;
+    --cream: 236 236 238;
+    --danger: 200 48 56;
+    --ok: 40 140 96;
+    --onbrand: 255 255 255;
+    --g1: 18 18 20;
+    --g2: 72 72 80;
+    --g3: 176 176 186;
+    --mark: 28 28 32;
+    --paper: 250 250 251;
+    --edge: 196 196 204;
+    --tint: 232 232 236;
+    --cow: 201 140 30;
+    --buffalo: 112 98 88;
+    --goat: 120 150 60;
+    --warn: 205 130 28;
+    color-scheme: light;
+  }
+
+  :root[data-palette="teal"].dark {
+    --bg: 248 246 241;
+    --panel: 255 254 252;
+    --soft: 236 238 232;
+    --line: 218 222 214;
+    --ink: 12 38 40;
+    --mute: 82 108 108;
+    --brand: 13 118 116;
+    --accent: 40 168 160;
+    --deep: 6 40 42;
+    --cream: 244 228 190;
+    --danger: 196 48 60;
+    --ok: 40 140 90;
+    --onbrand: 255 255 255;
+    --g1: 5 54 58;
+    --g2: 13 118 116;
+    --g3: 224 184 120;
+    --mark: 6 58 60;
+    --paper: 247 252 251;
+    --edge: 170 205 202;
+    --tint: 222 238 235;
+    --cow: 201 140 30;
+    --buffalo: 112 98 88;
+    --goat: 120 150 60;
+    --warn: 205 130 28;
+    color-scheme: light;
+  }
+}
+
+/* ---- More palettes: Citrus Lime and Saffron Sunrise ---- */
+:root[data-palette="lime"] {
+  --bg: 247 249 241;
+  --panel: 254 255 252;
+  --soft: 236 241 224;
+  --line: 218 226 200;
+  --ink: 24 32 12;
+  --mute: 98 112 78;
+  --brand: 84 130 16;
+  --accent: 132 190 36;
+  --deep: 20 30 6;
+  --cream: 232 240 190;
+  --danger: 196 48 60;
+  --ok: 20 150 100;
+  --onbrand: 255 255 255;
+  --g1: 30 48 8;
+  --g2: 84 130 16;
+  --g3: 190 224 70;
+  --mark: 32 50 10;
+  --paper: 250 253 244;
+  --edge: 190 210 150;
+  --tint: 232 242 208;
+  --cow: 201 140 30;
+  --buffalo: 112 98 88;
+  --goat: 120 150 60;
+  --warn: 205 130 28;
+  color-scheme: light;
+}
+
+:root[data-palette="lime"].dark {
+  --bg: 14 18 8;
+  --panel: 22 29 12;
+  --soft: 33 43 19;
+  --line: 52 66 32;
+  --ink: 244 249 232;
+  --mute: 170 184 140;
+  --brand: 170 224 60;
+  --accent: 205 240 120;
+  --deep: 6 8 3;
+  --cream: 232 240 190;
+  --onbrand: 22 32 4;
+  --g1: 40 62 10;
+  --g2: 84 132 18;
+  --g3: 188 226 72;
+  --mark: 56 84 16;
+  --paper: 250 253 244;
+  --edge: 190 210 150;
+  --tint: 232 242 208;
+  --cow: 232 170 66;
+  --buffalo: 168 156 146;
+  --goat: 160 190 90;
+  --danger: 240 110 110;
+  --ok: 96 205 140;
+  --warn: 240 175 80;
+  color-scheme: dark;
+}
+
+:root[data-palette="saffron"] {
+  --bg: 255 250 240;
+  --panel: 255 253 248;
+  --soft: 252 240 214;
+  --line: 240 222 184;
+  --ink: 40 26 8;
+  --mute: 124 100 62;
+  --brand: 182 92 0;
+  --accent: 240 150 20;
+  --deep: 40 22 4;
+  --cream: 252 232 180;
+  --danger: 200 40 50;
+  --ok: 40 140 90;
+  --onbrand: 255 255 255;
+  --g1: 110 50 0;
+  --g2: 182 92 0;
+  --g3: 250 190 50;
+  --mark: 100 46 0;
+  --paper: 255 250 238;
+  --edge: 238 200 140;
+  --tint: 253 236 196;
+  --cow: 201 140 30;
+  --buffalo: 112 98 88;
+  --goat: 120 150 60;
+  --warn: 205 130 28;
+  color-scheme: light;
+}
+
+:root[data-palette="saffron"].dark {
+  --bg: 20 14 6;
+  --panel: 32 23 10;
+  --soft: 46 34 16;
+  --line: 72 54 28;
+  --ink: 255 245 228;
+  --mute: 196 172 130;
+  --brand: 252 170 40;
+  --accent: 255 205 110;
+  --deep: 8 5 2;
+  --cream: 252 232 180;
+  --onbrand: 44 24 2;
+  --g1: 110 52 4;
+  --g2: 190 98 6;
+  --g3: 250 190 60;
+  --mark: 130 62 6;
+  --paper: 255 250 238;
+  --edge: 238 200 140;
+  --tint: 253 236 196;
+  --cow: 232 170 66;
+  --buffalo: 168 156 146;
+  --goat: 160 190 90;
+  --danger: 240 110 110;
+  --ok: 96 205 140;
+  --warn: 240 175 80;
+  color-scheme: dark;
+}
+
+@media print {
+  :root[data-palette="lime"].dark {
+    --bg: 247 249 241;
+    --panel: 254 255 252;
+    --soft: 236 241 224;
+    --line: 218 226 200;
+    --ink: 24 32 12;
+    --mute: 98 112 78;
+    --brand: 84 130 16;
+    --accent: 132 190 36;
+    --deep: 20 30 6;
+    --cream: 232 240 190;
+    --danger: 196 48 60;
+    --ok: 20 150 100;
+    --onbrand: 255 255 255;
+    --g1: 30 48 8;
+    --g2: 84 130 16;
+    --g3: 190 224 70;
+    --mark: 32 50 10;
+    --paper: 250 253 244;
+    --edge: 190 210 150;
+    --tint: 232 242 208;
+    --cow: 201 140 30;
+    --buffalo: 112 98 88;
+    --goat: 120 150 60;
+    --warn: 205 130 28;
+    color-scheme: light;
+  }
+
+  :root[data-palette="saffron"].dark {
+    --bg: 255 250 240;
+    --panel: 255 253 248;
+    --soft: 252 240 214;
+    --line: 240 222 184;
+    --ink: 40 26 8;
+    --mute: 124 100 62;
+    --brand: 182 92 0;
+    --accent: 240 150 20;
+    --deep: 40 22 4;
+    --cream: 252 232 180;
+    --danger: 200 40 50;
+    --ok: 40 140 90;
+    --onbrand: 255 255 255;
+    --g1: 110 50 0;
+    --g2: 182 92 0;
+    --g3: 250 190 50;
+    --mark: 100 46 0;
+    --paper: 255 250 238;
+    --edge: 238 200 140;
+    --tint: 253 236 196;
+    --cow: 201 140 30;
+    --buffalo: 112 98 88;
+    --goat: 120 150 60;
+    --warn: 205 130 28;
+    color-scheme: light;
+  }
+}
+
+/* ---- Dairy palettes: Fresh Milk and Butter & Ghee ---- */
+:root[data-palette="milk"] {
+  --bg: 252 251 247;
+  --panel: 255 255 254;
+  --soft: 244 242 233;
+  --line: 228 226 214;
+  --ink: 34 40 30;
+  --mute: 105 112 96;
+  --brand: 72 120 84;
+  --accent: 240 196 80;
+  --deep: 28 40 30;
+  --cream: 250 238 200;
+  --danger: 196 48 60;
+  --ok: 46 150 96;
+  --onbrand: 255 255 255;
+  --g1: 40 78 54;
+  --g2: 72 120 84;
+  --g3: 242 214 120;
+  --mark: 44 82 58;
+  --paper: 254 253 250;
+  --edge: 200 216 196;
+  --tint: 232 241 228;
+  --cow: 201 140 30;
+  --buffalo: 112 98 88;
+  --goat: 120 150 60;
+  --warn: 205 130 28;
+  color-scheme: light;
+}
+
+:root[data-palette="milk"].dark {
+  --bg: 18 22 18;
+  --panel: 26 32 26;
+  --soft: 37 45 37;
+  --line: 57 68 56;
+  --ink: 247 246 238;
+  --mute: 176 186 166;
+  --brand: 150 205 150;
+  --accent: 244 214 120;
+  --deep: 6 9 6;
+  --cream: 250 238 200;
+  --onbrand: 14 36 18;
+  --g1: 44 84 58;
+  --g2: 78 130 90;
+  --g3: 236 206 112;
+  --mark: 62 104 74;
+  --paper: 254 253 250;
+  --edge: 200 216 196;
+  --tint: 232 241 228;
+  --cow: 232 170 66;
+  --buffalo: 168 156 146;
+  --goat: 160 190 90;
+  --danger: 240 110 110;
+  --ok: 96 205 140;
+  --warn: 240 175 80;
+  color-scheme: dark;
+}
+
+:root[data-palette="ghee"] {
+  --bg: 255 250 226;
+  --panel: 255 254 245;
+  --soft: 250 239 196;
+  --line: 238 222 160;
+  --ink: 52 36 4;
+  --mute: 128 104 40;
+  --brand: 156 104 0;
+  --accent: 232 170 20;
+  --deep: 52 32 0;
+  --cream: 252 236 170;
+  --danger: 200 40 50;
+  --ok: 40 140 90;
+  --onbrand: 255 255 255;
+  --g1: 104 64 0;
+  --g2: 156 104 0;
+  --g3: 252 214 80;
+  --mark: 96 58 0;
+  --paper: 255 251 232;
+  --edge: 236 208 130;
+  --tint: 253 240 190;
+  --cow: 201 140 30;
+  --buffalo: 112 98 88;
+  --goat: 120 150 60;
+  --warn: 205 130 28;
+  color-scheme: light;
+}
+
+:root[data-palette="ghee"].dark {
+  --bg: 22 18 6;
+  --panel: 34 28 10;
+  --soft: 48 40 16;
+  --line: 74 62 26;
+  --ink: 255 249 225;
+  --mute: 200 184 130;
+  --brand: 246 200 60;
+  --accent: 252 224 120;
+  --deep: 9 7 2;
+  --cream: 252 236 170;
+  --onbrand: 46 30 0;
+  --g1: 112 70 0;
+  --g2: 176 118 4;
+  --g3: 250 210 80;
+  --mark: 132 84 4;
+  --paper: 255 251 232;
+  --edge: 236 208 130;
+  --tint: 253 240 190;
+  --cow: 232 170 66;
+  --buffalo: 168 156 146;
+  --goat: 160 190 90;
+  --danger: 240 110 110;
+  --ok: 96 205 140;
+  --warn: 240 175 80;
+  color-scheme: dark;
+}
+
+@media print {
+  :root[data-palette="milk"].dark {
+    --bg: 252 251 247;
+    --panel: 255 255 254;
+    --soft: 244 242 233;
+    --line: 228 226 214;
+    --ink: 34 40 30;
+    --mute: 105 112 96;
+    --brand: 72 120 84;
+    --accent: 240 196 80;
+    --deep: 28 40 30;
+    --cream: 250 238 200;
+    --danger: 196 48 60;
+    --ok: 46 150 96;
+    --onbrand: 255 255 255;
+    --g1: 40 78 54;
+    --g2: 72 120 84;
+    --g3: 242 214 120;
+    --mark: 44 82 58;
+    --paper: 254 253 250;
+    --edge: 200 216 196;
+    --tint: 232 241 228;
+    --cow: 201 140 30;
+    --buffalo: 112 98 88;
+    --goat: 120 150 60;
+    --warn: 205 130 28;
+    color-scheme: light;
+  }
+
+  :root[data-palette="ghee"].dark {
+    --bg: 255 250 226;
+    --panel: 255 254 245;
+    --soft: 250 239 196;
+    --line: 238 222 160;
+    --ink: 52 36 4;
+    --mute: 128 104 40;
+    --brand: 156 104 0;
+    --accent: 232 170 20;
+    --deep: 52 32 0;
+    --cream: 252 236 170;
+    --danger: 200 40 50;
+    --ok: 40 140 90;
+    --onbrand: 255 255 255;
+    --g1: 104 64 0;
+    --g2: 156 104 0;
+    --g3: 252 214 80;
+    --mark: 96 58 0;
+    --paper: 255 251 232;
+    --edge: 236 208 130;
+    --tint: 253 240 190;
+    --cow: 201 140 30;
+    --buffalo: 112 98 88;
+    --goat: 120 150 60;
+    --warn: 205 130 28;
+    color-scheme: light;
+  }
+}
+
+/* ---- Classic Blue ---- */
+:root[data-palette="blue"] {
+  --bg: 243 247 253;
+  --panel: 253 254 255;
+  --soft: 230 238 250;
+  --line: 210 223 242;
+  --ink: 14 28 56;
+  --mute: 84 102 134;
+  --brand: 30 100 220;
+  --accent: 70 150 245;
+  --deep: 10 24 56;
+  --cream: 214 230 252;
+  --danger: 200 48 60;
+  --ok: 22 150 100;
+  --onbrand: 255 255 255;
+  --g1: 10 40 100;
+  --g2: 30 100 220;
+  --g3: 110 180 250;
+  --mark: 12 44 108;
+  --paper: 245 249 255;
+  --edge: 176 200 240;
+  --tint: 222 234 252;
+  --cow: 201 140 30;
+  --buffalo: 112 98 88;
+  --goat: 120 150 60;
+  --warn: 205 130 28;
+  color-scheme: light;
+}
+
+:root[data-palette="blue"].dark {
+  --bg: 8 14 28;
+  --panel: 14 23 44;
+  --soft: 22 35 62;
+  --line: 38 56 92;
+  --ink: 234 242 255;
+  --mute: 150 170 205;
+  --brand: 96 165 250;
+  --accent: 147 197 253;
+  --deep: 3 6 14;
+  --cream: 214 230 252;
+  --onbrand: 6 24 60;
+  --g1: 14 50 120;
+  --g2: 36 104 224;
+  --g3: 100 176 250;
+  --mark: 20 64 140;
+  --paper: 245 249 255;
+  --edge: 176 200 240;
+  --tint: 222 234 252;
+  --cow: 232 170 66;
+  --buffalo: 168 156 146;
+  --goat: 160 190 90;
+  --danger: 240 110 110;
+  --ok: 96 205 140;
+  --warn: 240 175 80;
+  color-scheme: dark;
+}
+
+@media print {
+  :root[data-palette="blue"].dark {
+    --bg: 243 247 253;
+    --panel: 253 254 255;
+    --soft: 230 238 250;
+    --line: 210 223 242;
+    --ink: 14 28 56;
+    --mute: 84 102 134;
+    --brand: 30 100 220;
+    --accent: 70 150 245;
+    --deep: 10 24 56;
+    --cream: 214 230 252;
+    --danger: 200 48 60;
+    --ok: 22 150 100;
+    --onbrand: 255 255 255;
+    --g1: 10 40 100;
+    --g2: 30 100 220;
+    --g3: 110 180 250;
+    --mark: 12 44 108;
+    --paper: 245 249 255;
+    --edge: 176 200 240;
+    --tint: 222 234 252;
+    --cow: 201 140 30;
+    --buffalo: 112 98 88;
+    --goat: 120 150 60;
+    --warn: 205 130 28;
+    color-scheme: light;
+  }
+}
+
+@layer base {
+
+  /* Full-width foundation: nothing here may shrink the app or add side gaps on phones */
+  html {
+    -webkit-text-size-adjust: 100%;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: clip;
+  }
+
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: block;
+    overflow-x: clip;
+    background-image:
+      radial-gradient(900px 480px at 8% -10%, rgb(var(--brand) / .12), transparent 60%),
+      radial-gradient(700px 420px at 100% 0%, rgb(var(--accent) / .10), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  #root {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-align: left;
+  }
+
+  /* Fixed backgrounds glitch on phones and tablets, so scroll normally there */
+  @media (max-width: 1023px) {
+    body {
+      background-attachment: scroll;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--brand));
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+
+  ::selection {
+    background: rgb(var(--brand) / .25);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--line)) transparent;
+  }
+}
+
+@layer components {
+  .wave-a {
+    animation: wave 5s linear infinite;
+  }
+
+  .wave-b {
+    animation: wave 8s linear infinite reverse;
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, rgb(var(--soft)) 25%, rgb(var(--line) / .6) 37%, rgb(var(--soft)) 63%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s linear infinite;
+  }
+
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.flow-line {
+  stroke-dasharray: 6 6;
+  animation: flow 1s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+
+  html,
+  html.dark,
+  body {
+    background: #fff !important;
+    background-image: none !important;
+    color: rgb(var(--ink)) !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  header,
+  aside,
+  footer,
+  button,
+  [role="dialog"] {
+    display: none !important;
+  }
+
+  main {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .overflow-x-auto {
+    overflow: visible !important;
+  }
+
+  table {
+    page-break-inside: auto;
+  }
+
+  tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+}
+
+@keyframes blob {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(40px, -30px) scale(1.12);
+  }
+
+  66% {
+    transform: translate(-30px, 30px) scale(.94);
+  }
+}
+
+@keyframes floaty {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(var(--r, 0deg));
+  }
+}
+
+@keyframes gradmove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.blob {
+  animation: blob 14s ease-in-out infinite;
+}
+
+.floaty {
+  animation: floaty 7s ease-in-out infinite;
+}
+
+.grad-move {
+  background-size: 220% 220%;
+  animation: gradmove 12s ease infinite;
+}
+
+.glass {
+  background: rgb(255 255 255 / .14);
+  border: 1px solid rgb(255 255 255 / .28);
+  backdrop-filter: blur(14px);
+}
